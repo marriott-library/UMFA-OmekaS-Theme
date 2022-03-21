@@ -2,7 +2,7 @@
 
 OmekaS is a web publication system for universities, galleries, libraries, archives, and museums. It consists of a local network of independently curated exhibits sharing a collaboratively built pool of items, media, and their metadata.
 
-See [OmekaS user manual](https://omeka.org/s/docs/user-manual) and [UMFA user documentation](https://exhibits.lib.utah.edu/s/umfa-theme/page/getting-started) for more information.
+See [OmekaS Developer Documentation](https://omeka.org/s/docs/developer/), [OmekaS user manual](https://omeka.org/s/docs/user-manual), and [UMFA user documentation](https://exhibits.lib.utah.edu/s/umfa-theme/page/getting-started) for more information.
 
 
 ## Installing this Theme
