@@ -7,7 +7,7 @@ See [OmekaS user manual](https://omeka.org/s/docs/user-manual) and [UMFA user do
 
 ## Installing this Theme
 
-In order to appear in the Themes tab for sites, themes must be manually added to the themes folder of the installation, using an FTP program or an ssh connection.
+Themes must be manually added to the themes folder of the installation, using an FTP program or an ssh connection.
 
 To add this theme to the site using FTP
 
@@ -18,7 +18,7 @@ To add this theme to the site using FTP
 
 ## Theme Usage
 
-The UMFA theme using a licensed copy of the [Univers](https://www.myfonts.com/fonts/linotype/univers/) font. Univers hosted webfont files and license scripts/keys have been removed from the public repository. 
+The UMFA theme uses a licensed copy of the [Univers](https://www.myfonts.com/fonts/linotype/univers/) font. Univers hosted webfont files and license scripts/keys have been removed from the public repository. 
 
 ### User Documentation
 
