@@ -1,0 +1,17 @@
+header nav {
+	position: absolute;
+    top: 30px;
+    left: 370px;
+}
+
+#content {
+	min-height: calc(100vh - 288px);
+}
+
+@media screen and (max-width: 900px) {
+	header nav {
+		position: initial;
+		top: inherit;
+    	left: inherit;
+	}
+}

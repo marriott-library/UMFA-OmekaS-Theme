@@ -1,0 +1,739 @@
+/* Table of contents
+
+  1. General 
+   1a. Hidden Omeka Elements
+   1b. Theme Branding
+   1c. Search Toggle
+  2. Typography and Colors
+  3. System Pages
+   3a. Search and Browse
+   3b. Image Showcase
+   3c. Item View
+   3d. Image/Media Embed
+  4. Utilities
+  5. Components
+   5a. Buttons
+   5b. Collapse/Acoordion
+   5c. Row with background image
+   5d. Cards
+  6. Random Bug Fixes
+
+*/
+
+/* 1. General */
+html body ::selection {
+    background: #f8e71c;
+    color: #000;
+}
+body {
+   background-color: #fff;
+   font-family:"Univers LT W01_55 Roman1475956";  /* Webfonts removed from public files */
+   font-size: 18px;
+   line-height: 1.75rem;
+   color: #000;
+   overflow-x: hidden;
+}
+a:visited {
+	color: #512073;
+}
+#content[role=main]  {
+	max-width: 1250px;
+	min-height: calc(100vh - 336px);
+}
+@media only screen and (max-width: 799px) {
+	#content {
+		padding: 0 35px 30px;	
+   }
+}
+@media only screen and (min-width: 799px) {
+	.contextual-region {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
+/* 1a. Hidden Omeka Elements */
+
+#user-bar, .breadcrumbs {display: none;}
+
+/* 1b. Theme Branding */
+
+.marriott-branding {
+   background: #fff;
+   display: block;
+   padding: 9px;
+   color: #000;
+   text-align: center;
+   font-size: 14px;
+   line-height: normal;
+   clear: both;
+}
+.marriott-branding::after {
+	clear: both;
+	content: " ";
+	display: block;
+}
+.marriott-branding a {
+	border-bottom: 1px solid #c00;
+	color: #000;
+}
+.marriott-branding img {
+	width: 41px;
+	height: auto;
+}
+.marriott-branding a.ulogo {
+	border: none;
+	padding: 0 12px;
+	display: inline-block;
+	vertical-align: middle;
+}
+header nav {
+	background: #fff;
+	border-top: none;
+	border-bottom: none;
+}
+header nav ul a:hover {
+	color: #23cafd;
+}
+header nav ul li a:link, header nav ul li a:visited {
+	color: #383739;
+}
+header nav > ul > li > a {
+	margin: 0;
+	padding: 7.5px;
+}
+header nav > ul > li > .parent-link > a {
+	margin: 0;
+	padding: 7.5px;
+}
+header ul.navigation > li.active  {
+	background: #000;
+}
+header ul.navigation > li.active > a, header nav > ul > li.active > .parent-link > a {
+	color: #fff;
+}
+@media only screen and (max-width: 799px) {
+	header ul.navigation > li.active a {
+		color: #fff;
+	}
+   .sub-menu li {
+      display: none;
+   }
+}
+header>* {
+	max-width: inherit ;
+}
+.site-title {
+	display: inline-block;
+}
+.site-title-container {
+	position: relative;
+}
+a.site-title:visited {
+   color: #000;
+}
+footer {
+   text-align: center;
+   font-size: 12px;
+}
+
+/* 1c. Search Toggle */
+
+#search-container {
+	background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(173, 170, 164) 100%);
+	display: block;
+	padding: 30px;
+	position: relative;
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+#search {
+   left: 0;
+   border-left: 1px solid #dedede;
+   padding: 7.5px;
+   margin: 0 auto;
+   width: 85%;
+   position: relative;
+   max-width: 900px;	
+}
+#search-container.closed {
+	max-height: 0;
+	overflow: hidden;
+	padding: 0;
+}
+.nav-search-btn {
+	position: absolute;
+	right: 0;
+	background: transparent;
+	top: 0;
+	padding: 0 16px 5px 16px;
+}
+.nav-search-btn::after {
+   content: "\f002";
+   font-weight: 900;
+   font-family: 'Font Awesome 5 Free';
+   display: block;
+}
+@media only screen and (min-width: 799px) {	
+	#search form input[type="text"], #search form button[type="submit"] {
+		height: 45px;
+	}
+	#search form button[type="submit"] {
+		width: 50px;	
+	}
+	#search form button[type="submit"]::before  {
+		top: inherit;
+	}
+	#search input {
+		font-size: 40px;
+	}
+}
+@media only screen and (max-width: 799px) {
+	header {
+		padding-bottom: 0;
+	}
+	#search-container {
+		margin-top: 14px;
+	}
+	#search {
+		width: 100%;
+	}
+	header nav::before {
+		right: 55px;
+	}
+	.site-title h1 {
+		padding-right: 90px;
+	}
+	header {
+		margin-bottom: 50px;
+	}
+}
+@media only screen and (max-width: 668px) {
+	#search-container.closed {
+    	max-height: initial;
+		padding: 20px;
+}
+	.nav-search-btn {
+		display: none;
+	}
+	header nav::before {
+		right: 1.69492%;
+	}
+}
+
+/* 2. General Typography */	
+
+html body p {
+    margin-bottom: 1.33333rem;
+}
+
+#content p a, #content h3 a, .property a, .media-list a, .sub-menu .navigation a, .breadcrumbs a, .site-page-pagination a, .resource-list a, .site_pages a, .items a, .blockquote-footer a {
+	border-bottom: thin solid #23cafd;
+	color: #000;
+}
+#content p a:hover, #content h3 a:hover, .property a:hover, .media-list a:hover, .sub-menu .navigation a:hover, breadcrumbs a:hover, .site-page-pagination a:hover, .resource-list a:hover, .site_pages a:hover, .items a:hover {
+	color: #23cafd
+}
+h1, h2, h3, h4, h5 {
+	margin: 5px 0 5px;
+	font-family:"Univers LT W01_65 Bold1475968"; /* Webfonts removed from public files */
+	font-weight: 500;
+}
+h1 {
+   font-size: 3.33333rem; 
+   line-height: 3.66667rem; 
+   margin-bottom: 10px; 
+   letter-spacing: -1px; 
+   font-weight: 600;
+}
+h2 {
+   font-size: 2.66667rem; 
+   line-height: 2.66667rem; 
+   font-weight: 700;
+   margin-bottom: 1rem;
+   margin-top: 1rem; 
+}
+h3 {
+   font-size: 2rem; 
+   line-height: 1.88888rem; 
+   font-family: "Univers LT W01_67 Bold_1476016"; /* Webfonts removed from public files */
+   margin-bottom: 2rem;
+   margin-top: 2rem; 
+}
+h4 {
+   font-size: 24px; 
+   line-height: 30px; 
+   font-weight: 700; 
+   margin-bottom: 1rem;
+   margin-top: 1rem; 
+}
+h5 {
+   font-size: 22px; 
+   line-height: 26px; 
+}
+h6 {
+   margin: 0; 
+   font-size: 18px; 
+   letter-spacing: 1px;
+}
+.text-muted {
+    color: #6c757d !important;
+}
+header nav > ul > li > a, header nav > ul > li > .parent-link > a, header nav ul.navigation > li > ul > li {
+	text-transform: none;
+	font-size: 14px;
+	font-weight: 600;
+}
+p { 
+   margin: 3px 0 16px 0;
+}
+.lead {
+	font-size: 1.8rem;
+	line-height: 2.5rem;
+	font-family:"Univers LT W01_47 Light Cond"; /* Webfonts removed from public files */
+}
+.highlight {
+   padding: 1rem 1.5rem;
+   margin-bottom: 1rem;
+   background-color: #f8f9fa;
+}
+
+body.resource #content>h2:first-of-type+h3 {
+	margin-top: 0 ;
+	background: #fff;
+}
+.text-center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+.text-end {
+	text-align: right;
+}
+.breadcrumbs {
+    font-size: 15px;
+    margin: 30px 0 0 0;
+}
+.blockquote {
+	margin: 3rem 2rem;
+	font-size: 1.4rem;	
+}
+.blockquote > :last-child {
+    margin-bottom: 0;
+}
+.blockquote-footer::before {
+    content: "— ";
+   margin-left: -1rem;
+}
+.break.opaque {
+	border-color: rgba(0,0,0,1);
+	margin-left: auto;
+	margin-right: auto;
+}
+.blockquote-footer {
+   margin-top: -2rem;
+   padding: 0 2rem 0 3rem;
+	margin-bottom: 1.5rem;
+	font-size: .875em;
+	color: #6c757d;
+}
+.extra-small {
+	font-size: .7rem;
+	line-height: 1.5rem;
+	margin-top: 1.33337rem;
+	margin-bottom: 1.7rem;
+}
+
+.figure-caption {
+	font-size: .7rem;
+	line-height: 1.25rem;
+	margin-bottom: 1.7rem;
+}
+.orange-text {
+	color: #ffa512;
+}
+.text-uppercase {
+	text-transform: uppercase;
+}
+.caption {
+	font-size: .7rem;
+	line-height: 1.5rem;
+	margin-top: 0;
+	margin-bottom: 1.7rem;
+}
+/* 3 System Pages */
+
+/* 3a. Search and Browse */
+
+nav.pagination {
+	margin-bottom: 0;
+	padding-top: 15px;
+}
+a.advanced-search {
+	color: #fff;
+	background-color: #23cafd;
+	border-color: #23cafd;
+	border-radius: 2px;
+	padding: 7.5px 20px;
+	display: inline-block;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: 0;
+	cursor: pointer;
+}
+.search h1 {
+	font-size: 2.33333rem;
+	line-height: 2.66667rem;
+}
+.search h2 {
+	font-size: 1.66667rem;
+}
+.results > ul {
+	margin-top: 16px;
+}
+.results ul a {
+	color: #23cafd;
+	border-bottom: none;
+}
+
+/* 3b. Image Showcase */
+
+.item-showcase {
+ 	align-items: center;
+	justify-content: center;
+	border-top: 0;
+	border-bottom: 0;
+}
+.item-showcase .resource.item:not(:only-child) {
+	width: 25%;
+}
+.item-showcase .resource.item:not(:only-child) img {
+	max-height: inherit;
+	max-width: 100%;
+}
+.item-showcase a  {
+	max-height: 400px;
+	overflow: hidden;
+	display: block;
+	border-bottom: none !important;
+}
+.item-showcase .resource.item:not(:only-child) img {
+	height: 100%; 
+	width: 100%; 
+	object-fit: contain;
+}
+.attachments a {
+	border-bottom: none !important;
+}
+.item-showcase .resource.item:not(:only-child) img {
+	max-height: initial;
+}
+.item-showcase h3, .item-showcase .resource.item:not(:only-child) h3, .attachments h3, .medium .item.resource > h3, .square .item.resource > h3 {
+	font-size: 17px;
+	font-weight: normal;
+	line-height: 22px;
+	letter-spacing: .5px;
+   margin-top: 0;
+}
+.item-showcase h3 a {
+	height: inherit;
+}
+@media only screen and (max-width: 900px) {
+   .item-showcase .resource.item:not(:only-child) {
+      width: 50%;
+   }
+}
+
+/* 3c. Item View */
+
+.item-display .value {
+	font-size: 14px;
+	line-height: 25px;
+}
+.item-display h2 {
+	margin-bottom: 20px;
+}
+.property h4  {
+	letter-spacing: 1px;
+	font-size: 17px;
+	color: #ff00b6;
+}
+.property .value a {
+	display: initial;
+}
+
+/* 3d. Image/Media Embed  */
+
+.file { 
+	border-top: none;
+	border-bottom: none;
+	padding: 10px 0;
+}
+
+/* 4. Utilities */
+
+.clearfix {
+    overflow: auto;
+}
+.p-max-width {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.full-width-row {
+	width: calc(100vw - 8px);
+	position: relative;
+	margin-left: 50%;
+    transform: translateX(-50%);
+}
+pre {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+    font-size: .875em;
+}
+.d-grid {
+  display: grid !important;
+}
+.gap-2 {
+  gap: .5rem !important;
+}
+
+/* 5. Components */
+
+/* 5a. Buttons */
+
+.btn {
+   display: inline-block;
+   font-weight: 400;
+   color: #212529;
+   text-align: center;
+   vertical-align: middle;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   background-color: transparent;
+   border: 1px solid transparent;
+   padding: .375rem .75rem;
+   font-size: 1rem;
+   line-height: 2;
+   border-radius: .25rem;
+   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+   border-bottom: 0px !important;
+}
+.btn:visited, a.btn:visited, a.btn:hover, a.btn:active, a.btn:link {
+	color: #fff !important;	
+}
+.btn-primary {
+    color: #fff;
+    background-color: #23cafd;
+    border-color: #23cafd;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0299c8;
+    border-color: #0299c8;
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #ff00b6;
+    border-color: #ff00b6;
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #cc0092;
+    border-color: #cc0092;
+}
+.btn-group-sm > .btn, .btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+.btn-group-lg > .btn, .btn-lg {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 2;
+    border-radius: .3rem;
+}
+.btn-block {
+   display: block;
+}
+
+/* 5b. Collapse/Acoordion */
+
+.accordion {
+  background-color: #23cafd;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border: thin solid #fff;
+}
+.accordion:hover {
+  background-color: #0299c8;
+}
+.accordion.active {
+  background-color: #ff00b6;
+}
+.accordion:after {
+  content: '\002B';
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+.accordion.active:after {
+  content: "\2212";
+}
+.collapse-content {
+   margin-bottom: 30px;
+   padding-bottom: 30px;
+}
+.accordion-content, .collapse-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+.accordion-content {
+  background-color: #f5f5f5;
+  padding: 0 18px;
+}
+.accordion-content p:first-of-type, .collapse-content p:first-of-type {
+	padding-top: 20px;
+}
+
+/* 5c. Row with background image */
+
+#bgimg {
+	background-size: cover !important;
+	position: relative;
+	background-position: center;
+	margin: 0 -30px;
+}
+#bgimg::before {
+	background: rgb(0,0,0);
+	background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	content: '';
+}
+#bgimg .container {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+.iwt-header{
+	max-width: 650px;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 10px;
+	font-weight: 500 !important;
+	font-size: 47px !important;
+}
+.iwt-subheader {
+	font-size: 25px;
+	max-width: 650px;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center;
+	line-height: 37px;
+}
+
+/* 5c. Row with background image */
+.bg-cover {
+	background-size: cover;
+	padding: 150px 10px;
+	position: relative;
+	background-position: center;
+}
+.bg-cover::before {
+	background: rgb(0,0,0);
+	background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	content: '';
+}
+.bg-cover-heading {
+	font-size: 40px;
+	max-width: 650px;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 10px;
+	line-height: 49px;
+	letter-spacing: 1px
+}
+.bg-cover-subheader {
+	font-size: 25px;
+	max-width: 650px;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center;
+	line-height: 37px;
+}
+
+/* 5d. Cards */
+
+.card {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   min-width: 0;
+   word-wrap: break-word;
+   background-color: #fff;
+   background-clip: border-box;
+   margin-bottom: 1rem;
+}
+.card-body {
+   flex: 1 1 auto;
+   padding: 1rem 1rem;
+   margin: -40px 20px 0 20px;
+   background: #fff;
+}
+
+
+
+
+/* 6. Random Bug Fixes */
+
+/* Temporary Font Awesome Fix */
+
+#search form button[type="submit"]:before, header nav:before, header nav>ul>li>a:not(:only-child):after, header nav ul li > ul::before   {
+	font-family: 'Font Awesome 5 Free' !important ;
+}
+/* Width fix for large images */
+.left.file, .right.file  {
+	max-width: initial;
+}
+.left .item.resource:first-of-type, .right .item.resource:first-of-type  {
+	border-top: none;
+	padding-top: 0;
+}
+.left .item.resource:last-of-type, .right .item.resource:last-of-type {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+/* Universal Viewer Width fix */
+.universal-viewer #content  {width: 100% !important; padding: 0;}
