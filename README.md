@@ -18,7 +18,7 @@ To add this theme to the site using FTP
 
 ## Theme Usage
 
-The UMFA theme uses a licensed copy of the [Univers](https://www.myfonts.com/fonts/linotype/univers/) font. Univers hosted webfont files and license scripts/keys have been removed from the public repository. 
+The UMFA theme uses a licensed copy of the [Univers](https://www.myfonts.com/fonts/linotype/univers/) font. All hosted Univers webfont files and license scripts/keys have been removed from the public repository. 
 
 ### User Documentation
 
