@@ -26,7 +26,7 @@ The UMFA theme using a licensed copy of the [Univers](https://www.myfonts.com/fo
 
 ### Modifying Theme Styles
 
-This theme uses custom styles found in `umfa-default.css`, `absolute-topNav.css`, `item-meta-layout-condensed.css`, `umfa-default.css`,  from `asset/css/`
+This theme uses custom styles found in `umfa-default.css`, `absolute-topNav.css`, `item-meta-layout-condensed.css`, `left-header.css`,  from `asset/css/`
 
 * Modify desired theme style file from `asset/css/`
 * Add your own custom stylesheets by appendStylesheet in the main `layout.phtml` from `view/layout/` and create a new css file in `asset/css/`
